@@ -1,71 +1,205 @@
-<a href="https://chat.vercel.ai/">
-  <img alt="Next.js 14 and App Router-ready AI chatbot." src="https://chat.vercel.ai/opengraph-image.png">
-  <h1 align="center">Next.js AI Chatbot</h1>
-</a>
+import * as React from "react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { BrainCircuit, HeartPulse, Users, Clock, DollarSign, BarChart, MessageCircle } from "lucide-react"
+import Link from 'next/link'
 
-<p align="center">
-  An open-source AI chatbot app template built with Next.js, the Vercel AI SDK, OpenAI, and Vercel KV.
-</p>
+export default function AnoiaLandingPage() {
+  return (
+    <div className="flex flex-col min-h-screen bg-cyan-50">
+      <header className="px-4 lg:px-6 h-14 flex items-center bg-cyan-600 text-white">
+        <Link className="flex items-center justify-center" href="#">
+          <BrainCircuit className="h-6 w-6" />
+          <span className="ml-2 font-bold">Anoia</span>
+        </Link>
+        <nav className="ml-auto flex gap-4 sm:gap-6">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#features">
+            Features
+          </Link>
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#about">
+            About
+          </Link>
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#impact">
+            Impact
+          </Link>
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#contact">
+            Contact
+          </Link>
+        </nav>
+      </header>
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-cyan-800">
+                  Anoia: Transforming Dementia Care with AI
+                </h1>
+                <p className="mx-auto max-w-[700px] text-cyan-600 md:text-xl">
+                  Affordable diagnosis, personalized treatment, and 24/7 caregiver support powered by AI
+                </p>
+              </div>
+              <div className="space-x-4">
+                <Button className="bg-cyan-600 hover:bg-cyan-700">Get Started</Button>
+                <Button variant="outline" className="text-cyan-600 border-cyan-600 hover:bg-cyan-100">Learn More</Button>
+              </div>
+            </div>
+          </div>
+        </section>
 
-<p align="center">
-  <a href="#features"><strong>Features</strong></a> ·
-  <a href="#model-providers"><strong>Model Providers</strong></a> ·
-  <a href="#deploy-your-own"><strong>Deploy Your Own</strong></a> ·
-  <a href="#running-locally"><strong>Running locally</strong></a> ·
-  <a href="#authors"><strong>Authors</strong></a>
-</p>
-<br/>
+        {/* About Section */}
+        <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-white">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 text-cyan-800">About Anoia</h2>
+            <p className="mx-auto max-w-[800px] text-cyan-600 md:text-xl text-center">
+              Anoia is an innovative AI-powered platform designed to revolutionize dementia care. Developed by a multi-disciplinary team of experts from Harvard and MIT, including neurologists, data scientists, and healthcare professionals, Anoia harnesses cutting-edge artificial intelligence and machine learning algorithms to provide a holistic and efficient approach to dementia management.
+            </p>
+          </div>
+        </section>
 
-## Features
+        {/* Features Section */}
+        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-cyan-50">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 text-cyan-800">Key Features</h2>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <Card className="bg-white border-cyan-200">
+                <CardHeader>
+                  <BrainCircuit className="h-6 w-6 mb-2 text-cyan-600" />
+                  <CardTitle className="text-cyan-800">Early Detection and Diagnosis</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-cyan-600">Advanced speech analysis and cognitive assessment tools to detect subtle signs of cognitive decline, enabling early diagnosis of various forms of dementia.</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-white border-cyan-200">
+                <CardHeader>
+                  <HeartPulse className="h-6 w-6 mb-2 text-cyan-600" />
+                  <CardTitle className="text-cyan-800">Personalized Treatment Planning</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-cyan-600">Tailored treatment recommendations and care plans based on integrated patient data from multiple sources, optimizing interventions and resource utilization.</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-white border-cyan-200">
+                <CardHeader>
+                  <Users className="h-6 w-6 mb-2 text-cyan-600" />
+                  <CardTitle className="text-cyan-800">Comprehensive Caregiver Support</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-cyan-600">Educational materials, stress management techniques, medication reminders, community support forums, and AI-powered assistance for 24/7 support.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
 
-- [Next.js](https://nextjs.org) App Router
-- React Server Components (RSCs), Suspense, and Server Actions
-- [Vercel AI SDK](https://sdk.vercel.ai/docs) for streaming chat UI
-- Support for OpenAI (default), Anthropic, Cohere, Hugging Face, or custom AI chat models and/or LangChain
-- [shadcn/ui](https://ui.shadcn.com)
-  - Styling with [Tailwind CSS](https://tailwindcss.com)
-  - [Radix UI](https://radix-ui.com) for headless component primitives
-  - Icons from [Phosphor Icons](https://phosphoricons.com)
-- Chat History, rate limiting, and session storage with [Vercel KV](https://vercel.com/storage/kv)
-- [NextAuth.js](https://github.com/nextauthjs/next-auth) for authentication
+        {/* Ana Chatbot Section */}
+        <section id="ana-chatbot" className="w-full py-12 md:py-24 lg:py-32 bg-white">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 text-cyan-800">Meet Ana: Your AI Caregiver Assistant</h2>
+            <p className="mx-auto max-w-[700px] text-cyan-600 md:text-xl text-center mb-8">
+              Ana is our intelligent chatbot, designed specifically to support family caregivers of people with dementia. Available 24/7, Ana provides instant answers, emotional support, and personalized advice to help you navigate the challenges of caregiving.
+            </p>
+            <div className="flex justify-center">
+              <button
+                onClick={() => {
+                  window.open(
+                    'https://www.stack-ai.com/chat-assistant/22327fa5-e742-4088-aff9-af1528b0a39e/78489e95-89c5-4910-974b-6b4f0aa7fc2e/66fdc8f95845c9fce44605d1',
+                    'AnaChatbot',
+                    'width=400,height=600,resizable=yes,scrollbars=yes'
+                  );
+                }}
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
+              >
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Ask Ana
+              </button>
+            </div>
+          </div>
+        </section>
 
-## Model Providers
+        {/* Impact Section */}
+        <section id="impact" className="w-full py-12 md:py-24 lg:py-32 bg-cyan-50">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 text-cyan-800">Impact and Potential</h2>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <Card className="bg-white border-cyan-200">
+                <CardHeader>
+                  <Clock className="h-6 w-6 mb-2 text-cyan-600" />
+                  <CardTitle className="text-cyan-800">Early Intervention</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-cyan-600">Timely detection and intervention lead to better health outcomes and improved quality of life for patients.</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-white border-cyan-200">
+                <CardHeader>
+                  <DollarSign className="h-6 w-6 mb-2 text-cyan-600" />
+                  <CardTitle className="text-cyan-800">Cost-Effectiveness</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-cyan-600">Reduces long-term costs associated with advanced-stage dementia care through early diagnosis and personalized treatment plans.</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-white border-cyan-200">
+                <CardHeader>
+                  <BarChart className="h-6 w-6 mb-2 text-cyan-600" />
+                  <CardTitle className="text-cyan-800">Scalable Solution</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-cyan-600">Addresses the growing global challenge of dementia with a scalable and accessible approach, promoting a more sustainable healthcare model.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
 
-This template ships with OpenAI `gpt-3.5-turbo` as the default. However, thanks to the [Vercel AI SDK](https://sdk.vercel.ai/docs), you can switch LLM providers to [Anthropic](https://anthropic.com), [Cohere](https://cohere.com/), [Hugging Face](https://huggingface.co), or using [LangChain](https://js.langchain.com) with just a few lines of code.
-
-## Deploy Your Own
-
-You can deploy your own version of the Next.js AI Chatbot to Vercel with one click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?demo-title=Next.js+Chat&demo-description=A+full-featured%2C+hackable+Next.js+AI+chatbot+built+by+Vercel+Labs&demo-url=https%3A%2F%2Fchat.vercel.ai%2F&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F4aVPvWuTmBvzM5cEdRdqeW%2F4234f9baf160f68ffb385a43c3527645%2FCleanShot_2023-06-16_at_17.09.21.png&project-name=Next.js+Chat&repository-name=nextjs-chat&repository-url=https%3A%2F%2Fgithub.com%2Fvercel-labs%2Fai-chatbot&from=templates&skippable-integrations=1&env=OPENAI_API_KEY%2CAUTH_SECRET&envDescription=How+to+get+these+env+vars&envLink=https%3A%2F%2Fgithub.com%2Fvercel-labs%2Fai-chatbot%2Fblob%2Fmain%2F.env.example&teamCreateStatus=hidden&stores=[{"type":"kv"}])
-
-## Creating a KV Database Instance
-
-Follow the steps outlined in the [quick start guide](https://vercel.com/docs/storage/vercel-kv/quickstart#create-a-kv-database) provided by Vercel. This guide will assist you in creating and configuring your KV database instance on Vercel, enabling your application to interact with it.
-
-Remember to update your environment variables (`KV_URL`, `KV_REST_API_URL`, `KV_REST_API_TOKEN`, `KV_REST_API_READ_ONLY_TOKEN`) in the `.env` file with the appropriate credentials provided during the KV database setup.
-
-## Running locally
-
-You will need to use the environment variables [defined in `.env.example`](.env.example) to run Next.js AI Chatbot. It's recommended you use [Vercel Environment Variables](https://vercel.com/docs/projects/environment-variables) for this, but a `.env` file is all that is necessary.
-
-> Note: You should not commit your `.env` file or it will expose secrets that will allow others to control access to your various OpenAI and authentication provider accounts.
-
-1. Install Vercel CLI: `npm i -g vercel`
-2. Link local instance with Vercel and GitHub accounts (creates `.vercel` directory): `vercel link`
-3. Download your environment variables: `vercel env pull`
-
-```bash
-pnpm install
-pnpm dev
-```
-
-Your app template should now be running on [localhost:3000](http://localhost:3000/).
-
-## Authors
-
-This library is created by [Vercel](https://vercel.com) and [Next.js](https://nextjs.org) team members, with contributions from:
-
-- Jared Palmer ([@jaredpalmer](https://twitter.com/jaredpalmer)) - [Vercel](https://vercel.com)
-- Shu Ding ([@shuding\_](https://twitter.com/shuding_)) - [Vercel](https://vercel.com)
-- shadcn ([@shadcn](https://twitter.com/shadcn)) - [Vercel](https://vercel.com)
+        {/* Contact Section */}
+        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-white">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 text-cyan-800">Contact Us</h2>
+            <div className="mx-auto max-w-[500px]">
+              <Card className="bg-cyan-50 border-cyan-200">
+                <CardHeader>
+                  <CardTitle className="text-cyan-800">Get in touch</CardTitle>
+                  <CardDescription className="text-cyan-600">We're here to help with any questions about Anoia.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <form>
+                    <div className="grid w-full items-center gap-4">
+                      <div className="flex flex-col space-y-1.5">
+                        <Input id="name" placeholder="Name" className="border-cyan-300 focus:border-cyan-500" />
+                      </div>
+                      <div className="flex flex-col space-y-1.5">
+                        <Input id="email" placeholder="Email" type="email" className="border-cyan-300 focus:border-cyan-500" />
+                      </div>
+                      <div className="flex flex-col space-y-1.5">
+                        <Input id="message" placeholder="Your message" className="border-cyan-300 focus:border-cyan-500" />
+                      </div>
+                    </div>
+                  </form>
+                </CardContent>
+                <CardFooter className="flex justify-between">
+                  <Button className="w-full bg-cyan-600 hover:bg-cyan-700">Send Message</Button>
+                </CardFooter>
+              </Card>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-cyan-200 bg-cyan-50">
+        <p className="text-xs text-cyan-600">© 2024 Anoia. All rights reserved.</p>
+        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+          <Link className="text-xs hover:underline underline-offset-4 text-cyan-600" href="#">
+            Terms of Service
+          </Link>
+          <Link className="text-xs hover:underline underline-offset-4 text-cyan-600" href="#">
+            Privacy
+          </Link>
+        </nav>
+      </footer>
+    </div>
+  )
+}
